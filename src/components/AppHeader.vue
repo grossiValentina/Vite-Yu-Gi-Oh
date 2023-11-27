@@ -5,7 +5,11 @@ export default {
 </script>
 
 <template>
-   <h1>appHeader</h1>
+
+   <div class="p-3 ">
+      <h1>Yu-Gi-Oh Api</h1>
+   </div>
+   
 </template>
 
 <style scoped lang="scss">
