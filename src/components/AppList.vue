@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-    <div class="section">
+    
     <div class="container">
         <div class="row">
             <div class="col-3 align-items-stretch" v-for="card in store.list" :key="card.id">
@@ -23,7 +23,7 @@ export default {
             </div>
         </div>
     </div>
-    </div>
+    
     
    
 </template>

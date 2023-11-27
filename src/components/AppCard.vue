@@ -8,23 +8,38 @@ export default {
 </script>
 
 <template>
-    <div class="container ">
-        <div class="row">
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <img :src="card.card_images[0].image_url"  class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-text">{{ card.archetype }}</p>
-                        <p class="card-text">{{ card.name }}</p>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="card text-center mb-3" style="width: 10rem; height: 23rem;">
+                        <img :src="card.card_images[0].image_url" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text fw-bold text-uppercase text-white">{{ card.name }}</p>
+                            <p class="card-text fw-light">{{ card.archetype }}</p>
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </div>
 
+        </div>
     </div>
 </template>
 
 <style scoped lang="scss">
 @use "./style/partials/variables" as *;
+
+.wrapper{
+    width: 100%;
+}
+.container{
+    width: 70%;
+}
+.card {
+  background-color: $orange;
+  width: 100%;
+}
+
+
 </style>
