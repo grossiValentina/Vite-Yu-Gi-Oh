@@ -1,7 +1,6 @@
 <script>
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
-import AppCard from "./components/AppCard.vue";
 import AppList from "./components/AppList.vue";
 import { store } from "./store.js";
 
@@ -13,7 +12,7 @@ import { store } from "./store.js";
   },
   created(){
     axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
-    .then((resp) => {
+    .then((resp) => {this.store.list = resp.data.data;
 
     })
   },
@@ -22,8 +21,7 @@ import { store } from "./store.js";
 
   components :{
     AppHeader,
-    AppCard,
-    AppList
+    AppList,
   }
   
  }
@@ -33,7 +31,6 @@ import { store } from "./store.js";
 <template>
 
   <AppHeader />
-  <AppCard />
   <AppList />
 
 </template>
