@@ -10,8 +10,8 @@ export default {
 <template>
     <div class="wrapper">
         <div class="container">
-            <div class="row">
-                <div class="col-3">
+            <div class="row row-cols-5 mt-4">
+                <div class="col">
                     <div class="card text-center mb-3" style="width: 10rem; height: 23rem;">
                         <img :src="card.card_images[0].image_url" class="card-img-top">
                         <div class="card-body">
@@ -30,12 +30,7 @@ export default {
 <style scoped lang="scss">
 @use "./style/partials/variables" as *;
 
-.wrapper{
-    width: 100%;
-}
-.container{
-    width: 70%;
-}
+
 .card {
   background-color: $orange;
   width: 100%;

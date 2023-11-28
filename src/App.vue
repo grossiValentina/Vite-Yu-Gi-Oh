@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
+import AppSearch from "./components/AppSearch.vue";
 import AppList from "./components/AppList.vue";
 import { store } from "./store.js";
 
@@ -11,18 +12,35 @@ import { store } from "./store.js";
     };
   },
   created(){
-    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
-    .then((resp) => {this.store.list = resp.data.data;
-
+    axios.get(this.store.apiUrl, {
+      params: {
+        num: 20,
+        offset: 0,
+      }}).then((resp) => {
+        this.store.list = resp.data.data;
+        console.log(this.store.list)
     })
   },
-  
+  methods: {
+    handleSearch(){
+      console.log("cerca")
+      axios.get(this.store.apiUrl, {
+        params: {
+          archetype: this.store.searchArchetype,
+          num: 20,
+          offset: 0,
+        }}).then((resp) => { this.store.list = resp.data.data;
+      console.log(this.store.list) })
+      }
+     
 
+    },
 
   components :{
     AppHeader,
+    AppSearch,
     AppList,
-  }
+}
   
  }
 
@@ -31,6 +49,7 @@ import { store } from "./store.js";
 <template>
 
   <AppHeader />
+  <AppSearch @performSearch="handleSearch"/>
   <AppList />
 
 </template>
